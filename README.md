@@ -218,6 +218,6 @@ Source code in this repository is made available under the [Apache License Versi
 # cd flowise
 >pnpm dev
 
->docker build -t muthucube/builderai:latest .
->docker push muthucube/builderai:latest
->docker buildx build --platform linux/amd64,linux/arm64 -t muthucube/builderai:latest --push .
+docker build -t anmolbhargava07/builderai:latest .
+<!-- >docker push anmolbhargava07/builderai:latest -->
+docker buildx build --platform linux/amd64,linux/arm64 -t anmolbhargava07/builderai:latest --push .
