@@ -144,8 +144,8 @@ class ChatflowTool_Tools implements INode {
         const customInput = nodeData.inputs?.customInput as string
         const overrideConfig =
             typeof nodeData.inputs?.overrideConfig === 'string' &&
-            nodeData.inputs.overrideConfig.startsWith('{') &&
-            nodeData.inputs.overrideConfig.endsWith('}')
+                nodeData.inputs.overrideConfig.startsWith('{') &&
+                nodeData.inputs.overrideConfig.endsWith('}')
                 ? JSON.parse(nodeData.inputs.overrideConfig)
                 : nodeData.inputs?.overrideConfig
 
