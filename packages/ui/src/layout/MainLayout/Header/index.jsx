@@ -18,6 +18,7 @@ import { IconMenu2 } from '@tabler/icons-react'
 
 // store
 import { SET_DARKMODE } from '@/store/actions'
+import ProductTour from '@/components/ProductTour'
 
 // ==============================|| MAIN NAVBAR / HEADER ||============================== //
 
@@ -126,8 +127,10 @@ const Header = ({ handleLeftDrawerToggle }) => {
                 </ButtonBase>
             </Box>
             <Box sx={{ flexGrow: 1 }} />
-            {/* <MaterialUISwitch checked={isDark} onChange={changeDarkMode} /> */}
-            <Box sx={{ ml: 2 }}></Box>
+            {/* <MaterialUISwitch checked={isDa rk} onChange={changeDarkMode} /> */}
+            <Box sx={{ mr: 2 }}>
+                <ProductTour />
+            </Box>
             <ProfileSection handleLogout={signOutClicked} username={user?.user_name || user?.user_email || ''} />
         </>
     )
