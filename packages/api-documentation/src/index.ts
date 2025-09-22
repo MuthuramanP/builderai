@@ -13,5 +13,4 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, swaggerExplor
 
 app.listen(port, () => {
     // eslint-disable-next-line no-console
-    console.log(`Flowise API documentation server listening on port ${port}`)
 })

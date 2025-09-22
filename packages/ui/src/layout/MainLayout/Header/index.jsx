@@ -12,13 +12,13 @@ import { styled } from '@mui/material/styles'
 // project imports
 import LogoSection from '../LogoSection'
 import ProfileSection from './ProfileSection'
+import ProductTour from '@/components/ProductTour'
 
 // assets
 import { IconMenu2 } from '@tabler/icons-react'
 
 // store
 import { SET_DARKMODE } from '@/store/actions'
-import ProductTour from '@/components/ProductTour'
 
 // ==============================|| MAIN NAVBAR / HEADER ||============================== //
 
@@ -127,7 +127,7 @@ const Header = ({ handleLeftDrawerToggle }) => {
                 </ButtonBase>
             </Box>
             <Box sx={{ flexGrow: 1 }} />
-            {/* <MaterialUISwitch checked={isDa rk} onChange={changeDarkMode} /> */}
+            {/* <MaterialUISwitch checked={isDark} onChange={changeDarkMode} /> */}
             <Box sx={{ mr: 2 }}>
                 <ProductTour />
             </Box>
