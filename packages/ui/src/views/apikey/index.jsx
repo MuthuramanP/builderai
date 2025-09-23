@@ -383,7 +383,6 @@ const APIKey = () => {
                                 onClick={addNew}
                                 startIcon={<IconPlus />}
                                 id='btn_createApiKey'
-                                data-tour="create-key"
                             >
                                 Create Key
                             </StyledButton>

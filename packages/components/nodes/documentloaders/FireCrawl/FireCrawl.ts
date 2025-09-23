@@ -288,7 +288,7 @@ class FireCrawl_DocumentLoaders implements INode {
                 name: 'url',
                 type: 'string',
                 description: 'URL to be crawled/scraped',
-                placeholder: ''
+                placeholder: 'https://docs.flowiseai.com'
             },
             {
                 label: 'Crawler type',

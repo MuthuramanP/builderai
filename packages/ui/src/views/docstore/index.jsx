@@ -184,7 +184,6 @@ const Documents = () => {
                             onClick={addNew}
                             startIcon={<IconPlus />}
                             id='btn_createVariable'
-                            data-tour="add-docstore"
                         >
                             Add New
                         </StyledButton>

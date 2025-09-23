@@ -1,15 +1,13 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback } from 'react'
 import Joyride, { ACTIONS, EVENTS, STATUS } from 'react-joyride'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Button } from '@mui/material'
-// import { TourIcon } from '@tabler/icons-react'
 
 const ProductTour = () => {
     const [run, setRun] = useState(false)
     const [stepIndex, setStepIndex] = useState(0)
     const navigate = useNavigate()
     const location = useLocation()
-    const [tourReady, setTourReady] = useState(false)
 
     const steps = [
         // Step 1 - Chatflows
@@ -18,7 +16,7 @@ const ProductTour = () => {
             content: 'Welcome to Flowise! Let\'s start by exploring Chatflows - where you build conversational AI workflows.',
             placement: 'right',
             disableBeacon: true,
-        }, 
+        },
         {
             target: '[data-tour="chatflows-add-new"]',
             content: 'Click the "Add New" button to create your first chatflow.',
@@ -29,7 +27,6 @@ const ProductTour = () => {
             target: '[data-tour="canvas-area"]',
             content: 'This is the canvas where you can drag and drop nodes to build your AI workflow. Connect nodes by dragging from one output to another input.',
             placement: 'center',
-            route: '/canvas'
         },
         {
             target: '[data-tour="save-button"]',
@@ -53,7 +50,6 @@ const ProductTour = () => {
             target: '[data-tour="agent-canvas"]',
             content: 'Similar to chatflows, drag and drop agent nodes here and connect them to create collaborative AI workflows.',
             placement: 'center',
-            route: '/agentcanvas'
         },
         {
             target: '[data-tour="save-agentflow"]',
@@ -69,9 +65,14 @@ const ProductTour = () => {
         },
         {
             target: '[data-tour="assistant-types"]',
-            content: 'Here you can see different assistant types like Custom, OpenAI, and Azure assistants. Click on any card to explore.',
+            content: 'Here you can see different assistant types like Custom, OpenAI, and Azure assistants.',
             placement: 'bottom',
             route: '/assistants'
+        },
+        {
+            target: '[data-tour="add-assistant"]',
+            content: 'Click the "+ Add" button to create a new assistant with your specific configuration.',
+            placement: 'bottom',
         },
 
         // Step 4 - Marketplace
@@ -82,9 +83,14 @@ const ProductTour = () => {
         },
         {
             target: '[data-tour="marketplace-cards"]',
-            content: 'Browse through available templates. Click on any card to preview and use templates.',
+            content: 'Browse through available templates. Click on any card to preview it.',
             placement: 'bottom',
             route: '/marketplaces'
+        },
+        {
+            target: '[data-tour="use-template"]',
+            content: 'Use the "Use Template" button to instantly create a chatflow from this template.',
+            placement: 'bottom',
         },
 
         // Step 5 - Tools
@@ -130,6 +136,11 @@ const ProductTour = () => {
             placement: 'bottom',
             route: '/variables'
         },
+        {
+            target: '[data-tour="how-to-use"]',
+            content: 'Click "How to Use" to learn about variable usage in your workflows.',
+            placement: 'bottom',
+        },
 
         // Step 8 - API Keys
         {
@@ -142,6 +153,11 @@ const ProductTour = () => {
             content: 'Generate new API keys by clicking the "+ Create Key" button.',
             placement: 'bottom',
             route: '/apikey'
+        },
+        {
+            target: '[data-tour="import-keys"]',
+            content: 'You can also import keys in bulk using the Import option with a JSON file.',
+            placement: 'bottom',
         },
 
         // Step 9 - Document Stores
@@ -167,67 +183,42 @@ const ProductTour = () => {
 
             // Navigate to the required route if specified
             if (nextStep && nextStep.route && location.pathname !== nextStep.route) {
-                setTourReady(false)
                 navigate(nextStep.route)
-                // Longer delay for canvas routes due to ReactFlow component mounting
-                const delay = nextStep.route.includes('/canvas') ? 1000 : 500
+                // Small delay to allow route navigation
                 setTimeout(() => {
-                    setTourReady(true)
                     setStepIndex(nextStepIndex)
-                }, delay)
+                }, 100)
             } else {
                 setStepIndex(nextStepIndex)
             }
         } else if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status)) {
             setRun(false)
             setStepIndex(0)
-            setTourReady(false)
         }
     }, [navigate, location.pathname, steps])
 
-    // Handle route changes and DOM readiness
-    useEffect(() => {
-        if (run) {
-            setTourReady(false)
-            // Longer delay for canvas routes due to ReactFlow component mounting
-            const delay = location.pathname.includes('/canvas') ? 800 : 400
-            const timer = setTimeout(() => {
-                setTourReady(true)
-            }, delay)
-            return () => clearTimeout(timer)
-        }
-    }, [location.pathname, run])
-
     const startTour = () => {
+        setRun(true)
         setStepIndex(0)
         // Start from chatflows page
         if (location.pathname !== '/chatflows') {
             navigate('/chatflows')
-            setTimeout(() => {
-                setTourReady(true)
-                setRun(true)
-            }, 300)
-        } else {
-            setTourReady(true)
-            setRun(true)
         }
     }
 
     const stopTour = () => {
         setRun(false)
         setStepIndex(0)
-        setTourReady(false)
     }
 
     return (
         <>
-            {/* <Button
+            <Button
                 variant="outlined"
                 // startIcon={<TourIcon size={16} />}
                 onClick={startTour}
                 sx={{
                     borderColor: 'primary.main',
-                    color: 'primary.main',
                     '&:hover': {
                         borderColor: 'primary.dark',
                         backgroundColor: 'primary.main',
@@ -236,11 +227,11 @@ const ProductTour = () => {
                 }}
             >
                 Start Tour
-            </Button> */}
+            </Button>
             
             <Joyride
                 steps={steps}
-                run={run && tourReady}
+                run={run}
                 stepIndex={stepIndex}
                 callback={handleJoyrideCallback}
                 continuous={true}
@@ -248,8 +239,6 @@ const ProductTour = () => {
                 showSkipButton={true}
                 scrollToFirstStep={true}
                 scrollOffset={100}
-                spotlightClicks={true}
-                disableOverlayClose={false}
                 styles={{
                     options: {
                         primaryColor: '#7c3aed',

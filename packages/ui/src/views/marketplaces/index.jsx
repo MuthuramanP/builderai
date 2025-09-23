@@ -603,7 +603,7 @@ const Marketplace = () => {
                                             <Skeleton variant='rounded' height={160} />
                                         </Box>
                                     ) : (
-                                        <Box display='grid' gridTemplateColumns='repeat(3, 1fr)' gap={gridSpacing} data-tour="marketplace-cards">
+                                        <Box display='grid' gridTemplateColumns='repeat(3, 1fr)' gap={gridSpacing}>
                                             {getAllTemplatesMarketplacesApi.data
                                                 ?.filter(filterByBadge)
                                                 .filter(filterByType)

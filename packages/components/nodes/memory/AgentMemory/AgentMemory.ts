@@ -62,7 +62,7 @@ class AgentMemory_Memory implements INode {
                 label: 'Database File Path',
                 name: 'databaseFilePath',
                 type: 'string',
-                placeholder: '',
+                placeholder: 'C:\\Users\\User\\.flowise\\database.sqlite',
                 description:
                     'If SQLite is selected, provide the path to the SQLite database file. Leave empty to use default application database',
                 additionalParams: true,
