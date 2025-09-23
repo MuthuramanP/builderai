@@ -139,7 +139,7 @@ const Chatflows = () => {
                             exclusive
                             onChange={handleChange}
                         >
-                            <ToggleButton
+                            {/* <ToggleButton
                                 sx={{
                                     borderColor: theme.palette.grey[900] + 25,
                                     borderRadius: 2,
@@ -150,7 +150,7 @@ const Chatflows = () => {
                                 title='Card View'
                             >
                                 <IconLayoutGrid />
-                            </ToggleButton>
+                            </ToggleButton> */}
                             <ToggleButton
                                 sx={{
                                     borderColor: theme.palette.grey[900] + 25,
@@ -164,7 +164,7 @@ const Chatflows = () => {
                                 <IconList />
                             </ToggleButton>
                         </ToggleButtonGroup>
-                        <StyledButton variant='contained' onClick={addNew} startIcon={<IconPlus />} sx={{ borderRadius: 2, height: 40 }}>
+                        <StyledButton variant='contained' onClick={addNew} startIcon={<IconPlus />} data-tour="chatflows-add-new" sx={{ borderRadius: 2, height: 40 }}>
                             Add New
                         </StyledButton>
                     </ViewHeader>
@@ -197,11 +197,11 @@ const Chatflows = () => {
                     {!isLoading && (!getAllChatflowsApi.data || getAllChatflowsApi.data.length === 0) && (
                         <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} flexDirection='column'>
                             <Box sx={{ p: 2, height: 'auto' }}>
-                                <img
+                                {/* <img
                                     style={{ objectFit: 'cover', height: '25vh', width: 'auto' }}
                                     src={WorkflowEmptySVG}
                                     alt='WorkflowEmptySVG'
-                                />
+                                /> */}
                             </Box>
                             <div>No Chatflows Yet</div>
                         </Stack>

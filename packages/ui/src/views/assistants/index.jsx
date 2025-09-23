@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 // material-ui
-import { Card, CardContent, Stack } from '@mui/material'
+import { Card, CardContent, Stack, Typography, Box } from '@mui/material'
 import { useTheme, styled } from '@mui/material/styles'
 
 // project imports
@@ -18,43 +18,58 @@ const cards = [
         description: 'Create custom assistant using your choice of LLMs',
         icon: <IconRobotFace />,
         iconText: 'Custom',
-        gradient: 'linear-gradient(135deg, #fff8e14e 0%, #ffcc802f 100%)'
+        gradient: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))'
     },
     {
         title: 'OpenAI Assistant',
         description: 'Create assistant using OpenAI Assistant API',
         icon: <IconBrandOpenai />,
         iconText: 'OpenAI',
-        gradient: 'linear-gradient(135deg, #c9ffd85f 0%, #a0f0b567 100%)'
+        gradient: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))'
     },
     {
         title: 'Azure Assistant (Coming Soon)',
         description: 'Create assistant using Azure Assistant API',
         icon: <IconBrandAzure />,
         iconText: 'Azure',
-        gradient: 'linear-gradient(135deg, #c4e1ff57 0%, #80b7ff5a 100%)'
+        gradient: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))'
     }
 ]
 
-const StyledCard = styled(Card)(({ gradient }) => ({
-    height: '300px',
-    background: gradient,
-    position: 'relative',
-    overflow: 'hidden',
-    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-    cursor: 'pointer'
+// Glassmorphism style
+const StyledCard = styled(Card)(({ theme }) => ({
+    height: '320px',
+    background: 'rgba(255, 255, 255, 0.05)',
+    backdropFilter: 'blur(10px)',
+    WebkitBackdropFilter: 'blur(10px)',
+    borderRadius: '20px',
+    border: `1px solid rgba(255, 255, 255, 0.2)`,
+    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.1)',
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    cursor: 'pointer',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    color: '#fff',
+    '&:hover': {
+        transform: 'translateY(-10px)',
+        boxShadow: '0 20px 40px rgba(0,0,0,0.25)'
+    }
 }))
 
-const FeatureIcon = styled('div')(() => ({
-    display: 'inline-flex',
-    padding: '4px 8px',
-    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-    borderRadius: '4px',
-    marginBottom: '16px',
+const FeatureIcon = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '60px',
+    height: '60px',
+    borderRadius: '50%',
+    background: 'rgba(255, 255, 255, 0.15)',
+    marginBottom: theme.spacing(2),
     '& svg': {
-        width: '1.2rem',
-        height: '1.2rem',
-        marginRight: '8px'
+        width: '32px',
+        height: '32px',
+        color: '#fff'
     }
 }))
 
@@ -81,33 +96,36 @@ const FeatureCards = () => {
             {cards.map((card, index) => (
                 <StyledCard
                     key={index}
-                    gradient={card.gradient}
+                    onClick={() => index !== 2 && onCardClick(index)}
                     sx={{
                         flex: 1,
-                        maxWidth: 'calc((100% - 2 * 16px) / 3)',
-                        height: 'auto',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        border: 1,
-                        borderColor: theme.palette.grey[900] + 25,
-                        borderRadius: 2,
-                        color: customization.isDarkMode ? theme.palette.common.white : '#333333',
-                        cursor: index === 2 ? 'not-allowed' : 'pointer',
+                        maxWidth: 'calc((100% - 32px) / 3)',
                         opacity: index === 2 ? 0.6 : 1,
-                        '&:hover': {
-                            boxShadow: index === 2 ? 'none' : '0 4px 20px rgba(0, 0, 0, 0.1)'
-                        }
+                        cursor: index === 2 ? 'not-allowed' : 'pointer'
                     }}
-                    onClick={() => index !== 2 && onCardClick(index)}
                 >
-                    <CardContent className='h-full relative z-10'>
-                        <FeatureIcon>
-                            {card.icon}
-                            <span className='text-xs uppercase'>{card.iconText}</span>
-                        </FeatureIcon>
-                        <h2 className='text-2xl font-bold mb-2'>{card.title}</h2>
-                        <p className='text-gray-600'>{card.description}</p>
+                    <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', height: '100%' }}>
+                        <FeatureIcon>{card.icon}</FeatureIcon>
+                        <Typography variant='h5' fontWeight={700} gutterBottom>
+                            {card.title}
+                        </Typography>
+                        <Typography variant='body2' sx={{ color: 'rgba(255,255,255,0.8)' }}>
+                            {card.description}
+                        </Typography>
+                        <Box sx={{ flexGrow: 1 }} />
+                        <Box
+                            sx={{
+                                mt: 2,
+                                px: 3,
+                                py: 1,
+                                borderRadius: 2,
+                                background: 'rgba(255,255,255,0.1)',
+                                fontSize: '0.75rem',
+                                fontWeight: 600
+                            }}
+                        >
+                            {card.iconText}
+                        </Box>
                     </CardContent>
                 </StyledCard>
             ))}
@@ -119,16 +137,14 @@ const FeatureCards = () => {
 
 const Assistants = () => {
     return (
-        <>
-            <MainCard>
-                <Stack flexDirection='column' sx={{ gap: 3 }}>
-                    <ViewHeader title='Assistants' />
-                    <div data-tour="assistant-types">
-                        <FeatureCards />
-                    </div>
-                </Stack>
-            </MainCard>
-        </>
+        <MainCard>
+            <Stack flexDirection='column' sx={{ gap: 3 }}>
+                <ViewHeader title='Assistants' />
+                <div data-tour="assistant-types">
+                    <FeatureCards />
+                </div>
+            </Stack>
+        </MainCard>
     )
 }
 

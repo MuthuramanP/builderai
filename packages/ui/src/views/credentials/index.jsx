@@ -162,9 +162,8 @@ const Credentials = () => {
                 }
             } catch (error) {
                 enqueueSnackbar({
-                    message: `Failed to delete Credential: ${
-                        typeof error.response.data === 'object' ? error.response.data.message : error.response.data
-                    }`,
+                    message: `Failed to delete Credential: ${typeof error.response.data === 'object' ? error.response.data.message : error.response.data
+                        }`,
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'error',
@@ -263,20 +262,23 @@ const Credentials = () => {
                                 <Table sx={{ minWidth: 650 }} aria-label='simple table'>
                                     <TableHead
                                         sx={{
-                                            backgroundColor: customization.isDarkMode
-                                                ? theme.palette.common.black
-                                                : theme.palette.grey[100],
-                                            height: 56
+                                            backgroundColor: "silver",
+                                            height: 56,
+                                            "& .MuiTableCell-root": {
+                                                color: "#000", // text color for all cells inside the head
+                                                fontWeight: 600
+                                            }
                                         }}
                                     >
                                         <TableRow>
-                                            <StyledTableCell>Name</StyledTableCell>
-                                            <StyledTableCell>Last Updated</StyledTableCell>
-                                            <StyledTableCell>Created</StyledTableCell>
+                                            <StyledTableCell style={{color: '#000'}}>Name</StyledTableCell>
+                                            <StyledTableCell style={{color: '#000'}}>Last Updated</StyledTableCell>
+                                            <StyledTableCell style={{color: '#000'}}>Created</StyledTableCell>
                                             <StyledTableCell> </StyledTableCell>
                                             <StyledTableCell> </StyledTableCell>
                                         </TableRow>
                                     </TableHead>
+
                                     <TableBody>
                                         {isLoading ? (
                                             <>

@@ -86,6 +86,12 @@ const Marketplace = () => {
 
     const getAllTemplatesMarketplacesApi = useApi(marketplacesApi.getAllTemplatesFromMarketplaces)
 
+    const filteredTemplates = getAllTemplatesMarketplacesApi.data?.filter(
+        (template) => !template.templateName.includes("Flowise")
+    )
+
+    console.log(filteredTemplates)
+
     const [view, setView] = React.useState(localStorage.getItem('mpDisplayStyle') || 'card')
     const [search, setSearch] = useState('')
     const [badgeFilter, setBadgeFilter] = useState([])
@@ -122,7 +128,7 @@ const Marketplace = () => {
             // On autofill we get a stringified value.
             typeof value === 'string' ? value.split(',') : value
         )
-        const data = activeTabValue === 0 ? getAllTemplatesMarketplacesApi.data : getAllCustomTemplatesApi.data
+        const data = activeTabValue === 0 ? filteredTemplates : getAllCustomTemplatesApi.data
         getEligibleUsecases(data, {
             typeFilter,
             badgeFilter: typeof value === 'string' ? value.split(',') : value,
@@ -139,7 +145,7 @@ const Marketplace = () => {
             // On autofill we get a stringified value.
             typeof value === 'string' ? value.split(',') : value
         )
-        const data = activeTabValue === 0 ? getAllTemplatesMarketplacesApi.data : getAllCustomTemplatesApi.data
+        const data = activeTabValue === 0 ? filteredTemplates : getAllCustomTemplatesApi.data
         getEligibleUsecases(data, {
             typeFilter: typeof value === 'string' ? value.split(',') : value,
             badgeFilter,
@@ -156,7 +162,7 @@ const Marketplace = () => {
             // On autofill we get a stringified value.
             typeof value === 'string' ? value.split(',') : value
         )
-        const data = activeTabValue === 0 ? getAllTemplatesMarketplacesApi.data : getAllCustomTemplatesApi.data
+        const data = activeTabValue === 0 ? filteredTemplates : getAllCustomTemplatesApi.data
         getEligibleUsecases(data, {
             typeFilter,
             badgeFilter,
@@ -173,7 +179,7 @@ const Marketplace = () => {
 
     const onSearchChange = (event) => {
         setSearch(event.target.value)
-        const data = activeTabValue === 0 ? getAllTemplatesMarketplacesApi.data : getAllCustomTemplatesApi.data
+        const data = activeTabValue === 0 ? filteredTemplates : getAllCustomTemplatesApi.data
 
         getEligibleUsecases(data, { typeFilter, badgeFilter, frameworkFilter, search: event.target.value })
     }
@@ -318,9 +324,9 @@ const Marketplace = () => {
     }, [getAllTemplatesMarketplacesApi.loading])
 
     useEffect(() => {
-        if (getAllTemplatesMarketplacesApi.data) {
+        if (filteredTemplates) {
             try {
-                const flows = getAllTemplatesMarketplacesApi.data
+                const flows = filteredTemplates
                 const usecases = []
                 const images = {}
                 for (let i = 0; i < flows.length; i += 1) {
@@ -345,7 +351,7 @@ const Marketplace = () => {
                 console.error(e)
             }
         }
-    }, [getAllTemplatesMarketplacesApi.data])
+    }, [filteredTemplates])
 
     useEffect(() => {
         if (getAllTemplatesMarketplacesApi.error) {
@@ -529,7 +535,7 @@ const Marketplace = () => {
                                 exclusive
                                 onChange={handleViewChange}
                             >
-                                <ToggleButton
+                                {/* <ToggleButton
                                     sx={{
                                         borderColor: theme.palette.grey[900] + 25,
                                         borderRadius: 2,
@@ -540,7 +546,7 @@ const Marketplace = () => {
                                     title='Card View'
                                 >
                                     <IconLayoutGrid />
-                                </ToggleButton>
+                                </ToggleButton> */}
                                 <ToggleButton
                                     sx={{
                                         borderColor: theme.palette.grey[900] + 25,
@@ -603,8 +609,8 @@ const Marketplace = () => {
                                             <Skeleton variant='rounded' height={160} />
                                         </Box>
                                     ) : (
-                                        <Box display='grid' gridTemplateColumns='repeat(3, 1fr)' gap={gridSpacing}>
-                                            {getAllTemplatesMarketplacesApi.data
+                                        <Box display='grid' gridTemplateColumns='repeat(3, 1fr)' gap={gridSpacing} data-tour="marketplace-cards">
+                                            {filteredTemplates
                                                 ?.filter(filterByBadge)
                                                 .filter(filterByType)
                                                 .filter(filterFlows)
@@ -653,7 +659,7 @@ const Marketplace = () => {
                                 </>
                             ) : (
                                 <MarketplaceTable
-                                    data={getAllTemplatesMarketplacesApi.data}
+                                    data={filteredTemplates}
                                     filterFunction={filterFlows}
                                     filterByType={filterByType}
                                     filterByBadge={filterByBadge}
@@ -666,7 +672,7 @@ const Marketplace = () => {
                                 />
                             )}
 
-                            {!isLoading && (!getAllTemplatesMarketplacesApi.data || getAllTemplatesMarketplacesApi.data.length === 0) && (
+                            {!isLoading && (!filteredTemplates || filteredTemplates.length === 0) && (
                                 <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} flexDirection='column'>
                                     <Box sx={{ p: 2, height: 'auto' }}>
                                         <img
@@ -792,11 +798,11 @@ const Marketplace = () => {
                             {!isLoading && (!getAllCustomTemplatesApi.data || getAllCustomTemplatesApi.data.length === 0) && (
                                 <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} flexDirection='column'>
                                     <Box sx={{ p: 2, height: 'auto' }}>
-                                        <img
+                                        {/* <img
                                             style={{ objectFit: 'cover', height: '25vh', width: 'auto' }}
                                             src={WorkflowEmptySVG}
                                             alt='WorkflowEmptySVG'
-                                        />
+                                        /> */}
                                     </Box>
                                     <div>No Saved Custom Templates</div>
                                 </Stack>

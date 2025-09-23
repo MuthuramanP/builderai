@@ -33,14 +33,14 @@ const AuthRoutes = {
           </AuthGuard>
         )
       },
-      {
-        path: 'signup',
-        element: (
-          <AuthGuard>
-            <Signup />
-          </AuthGuard>
-        )
-      }
+      // {
+      //   path: 'signup',
+      //   element: (
+      //     <AuthGuard>
+      //       <Signup />
+      //     </AuthGuard>
+      //   )
+      // }
     ]
   }
   

@@ -384,9 +384,9 @@ const ProfileSection = ({ username, handleLogout }) => {
                                             }}
                                         >
                                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                                                <IconUser size={17} stroke={1.5} />
+                                                <IconUser size={17} stroke={1.5} color="#3B82F6" />
                                                 <Box>
-                                                    <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                                                    <Typography variant="h5" sx={{ fontWeight: 600, color: '#3B82F6' }}>
                                                         {username}
                                                     </Typography>
                                                     {expiryDate && (
@@ -436,25 +436,21 @@ const ProfileSection = ({ username, handleLogout }) => {
                                                         py: 1.2,
                                                         borderRadius: 2,
                                                         transition: 'all 0.2s ease-in-out',
-                                                        '&:hover': {
-                                                            backgroundColor: theme.palette.primary.light,
-                                                            color: theme.palette.primary.contrastText
-                                                        }
                                                     }
                                                 }}
                                             >
                                                 <ListItemButton onClick={() => setExportDialogOpen(true)}>
                                                     <ListItemIcon>
-                                                        <IconFileExport stroke={1.5} size="1.3rem" />
+                                                        <IconFileExport style={{ color: '#3B82F6' }} stroke={1.5} size="1.3rem" />
                                                     </ListItemIcon>
-                                                    <ListItemText primary={<Typography variant="body2">Export</Typography>} />
+                                                    <ListItemText primary={<Typography style={{ color: '#3B82F6' }} variant="body2">Export</Typography>} />
                                                 </ListItemButton>
 
                                                 <ListItemButton onClick={importAll}>
                                                     <ListItemIcon>
-                                                        <IconFileUpload stroke={1.5} size="1.3rem" />
+                                                        <IconFileUpload style={{ color: '#3B82F6' }} stroke={1.5} size="1.3rem" />
                                                     </ListItemIcon>
-                                                    <ListItemText primary={<Typography variant="body2">Import</Typography>} />
+                                                    <ListItemText primary={<Typography style={{ color: '#3B82F6' }} variant="body2">Import</Typography>} />
                                                 </ListItemButton>
 
                                                 <input ref={inputRef} type="file" hidden onChange={fileChange} accept=".json" />

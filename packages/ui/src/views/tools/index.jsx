@@ -34,7 +34,7 @@ const Tools = () => {
     const [error, setError] = useState(null)
     const [showDialog, setShowDialog] = useState(false)
     const [dialogProps, setDialogProps] = useState({})
-    const [view, setView] = useState(localStorage.getItem('toolsDisplayStyle') || 'card')
+    const [view, setView] = useState(localStorage.getItem('toolsDisplayStyle') || 'list');
 
     const inputRef = useRef(null)
 
@@ -146,7 +146,7 @@ const Tools = () => {
                                 exclusive
                                 onChange={handleChange}
                             >
-                                <ToggleButton
+                                {/* <ToggleButton
                                     sx={{
                                         borderColor: theme.palette.grey[900] + 25,
                                         borderRadius: 2,
@@ -157,7 +157,7 @@ const Tools = () => {
                                     title='Card View'
                                 >
                                     <IconLayoutGrid />
-                                </ToggleButton>
+                                </ToggleButton> */}
                                 <ToggleButton
                                     sx={{
                                         borderColor: theme.palette.grey[900] + 25,
@@ -225,11 +225,11 @@ const Tools = () => {
                         {!isLoading && (!getAllToolsApi.data || getAllToolsApi.data.length === 0) && (
                             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} flexDirection='column'>
                                 <Box sx={{ p: 2, height: 'auto' }}>
-                                    <img
+                                    {/* <img
                                         style={{ objectFit: 'cover', height: '20vh', width: 'auto' }}
                                         src={ToolEmptySVG}
                                         alt='ToolEmptySVG'
-                                    />
+                                    /> */}
                                 </Box>
                                 <div>No Tools Created Yet</div>
                             </Stack>

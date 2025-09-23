@@ -58,7 +58,7 @@
 2. 運行映像：
 
     ```bash
-    docker run -d --name flowise -p 3000:3000 flowise
+    docker run -d --name flowise -p 3000:3000flowise
     ```
 
 3. 停止映像：
@@ -152,29 +152,29 @@ Flowise 支持不同的環境變量來配置您的實例。您可以在 `package
 
 ## 📖 文檔
 
-[Flowise 文檔](https://docs.flowiseai.com/)
+[Flowise 文檔](https:///)
 
 ## 🌐 自我托管
 
-在您現有的基礎設施中部署 Flowise 自我托管，我們支持各種 [部署](https://docs.flowiseai.com/configuration/deployment)
+在您現有的基礎設施中部署 Flowise 自我托管，我們支持各種 [部署](https:///configuration/deployment)
 
--   [AWS](https://docs.flowiseai.com/configuration/deployment/aws)
--   [Azure](https://docs.flowiseai.com/configuration/deployment/azure)
--   [Digital Ocean](https://docs.flowiseai.com/configuration/deployment/digital-ocean)
--   [GCP](https://docs.flowiseai.com/configuration/deployment/gcp)
+-   [AWS](https:///configuration/deployment/aws)
+-   [Azure](https:///configuration/deployment/azure)
+-   [Digital Ocean](https:///configuration/deployment/digital-ocean)
+-   [GCP](https:///configuration/deployment/gcp)
 -   [阿里雲](https://computenest.console.aliyun.com/service/instance/create/default?type=user&ServiceName=Flowise社区版)
 -   <details>
       <summary>其他</summary>
 
-    -   [Railway](https://docs.flowiseai.com/configuration/deployment/railway)
+    -   [Railway](https:///configuration/deployment/railway)
 
         [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/pn4G8S?referralCode=WVNPD9)
 
-    -   [Render](https://docs.flowiseai.com/configuration/deployment/render)
+    -   [Render](https:///configuration/deployment/render)
 
-        [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://docs.flowiseai.com/configuration/deployment/render)
+        [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https:///configuration/deployment/render)
 
-    -   [HuggingFace Spaces](https://docs.flowiseai.com/deployment/hugging-face)
+    -   [HuggingFace Spaces](https:///deployment/hugging-face)
 
         <a href="https://huggingface.co/spaces/FlowiseAI/Flowise"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm.svg" alt="HuggingFace Spaces"></a>
 
@@ -194,7 +194,7 @@ Flowise 支持不同的環境變量來配置您的實例。您可以在 `package
 
 ## ☁️ Flowise 雲
 
-[開始使用 Flowise 雲](https://flowiseai.com/)
+[開始使用 Flowise 雲](https://builder.dev.nusummituat.com//)
 
 ## 🙋 支持
 

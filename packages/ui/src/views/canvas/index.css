@@ -1,20 +1,25 @@
 .edgebutton {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
-    background: #eee;
-    border: 1px solid #fff;
+    background: linear-gradient(135deg, #10B981, #34D399);
+    border: 2px solid #059669;
     cursor: pointer;
     border-radius: 50%;
+    color: #000000;
+    font-weight: 600;
+    box-shadow: 0 4px 12px -4px rgba(16, 185, 129, 0.4);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .edgebutton:hover {
-    background: #5e35b1;
-    color: #eee;
-    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, #059669, #10B981);
+    color: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px -4px rgba(16, 185, 129, 0.6);
 }
 
 .edgebutton-foreignobject div {
@@ -31,19 +36,39 @@
     display: flex;
     flex-grow: 1;
     height: 100%;
+    background: linear-gradient(135deg, #030712 0%, #111827 100%);
+    position: relative;
+}
+
+.reactflow-parent-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(52, 211, 153, 0.05) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .reactflow-parent-wrapper .reactflow-wrapper {
     flex-grow: 1;
     height: 100%;
+    background: transparent;
 }
 
 .chatflow-canvas .react-flow__handle-connecting {
     cursor: not-allowed;
-    background: #db4e4e !important;
+    background: linear-gradient(135deg, #EF4444, #DC2626) !important;
+    border: 2px solid #991B1B !important;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.4) !important;
 }
 
 .chatflow-canvas .react-flow__handle-valid {
     cursor: crosshair;
-    background: #5dba62 !important;
+    background: linear-gradient(135deg, #10B981, #34D399) !important;
+    border: 2px solid #059669 !important;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4) !important;
 }

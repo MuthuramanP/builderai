@@ -57,7 +57,7 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
         <Box
             component='nav'
             sx={{
-                flexShrink: { md: 0 },
+                flexShrink: { md: 0},
                 width: matchUpMd ? drawerWidth : 'auto'
             }}
             aria-label='mailbox folders'
@@ -74,8 +74,11 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
                         background: theme.palette.background.default,
                         color: theme.palette.text.primary,
                         [theme.breakpoints.up('md')]: {
-                            top: `${headerHeight}px`
+                            top: `20px`
                         },
+                        position: 'fixed',
+                        top: `20px`,
+                        height: `calc(100vh - ${headerHeight}px)`,
                         borderRight: drawerOpen ? '1px solid' : 'none',
                         borderColor: drawerOpen ? theme.palette.primary[200] + 75 : 'transparent',
                         zIndex: 1000

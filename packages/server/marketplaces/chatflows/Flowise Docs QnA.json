@@ -1,5 +1,5 @@
 {
-    "description": "Flowise Docs Github QnA using Retrieval Augmented Generation (RAG)",
+    "description": "NuAgentOne Docs Github QnA using Retrieval Augmented Generation (RAG)",
     "badge": "POPULAR",
     "usecases": ["Documents QnA"],
     "framework": ["Langchain"],
@@ -41,7 +41,7 @@
                 ],
                 "inputAnchors": [],
                 "inputs": {
-                    "chunkSize": "4000",
+                    "chunkSize": "3000",
                     "chunkOverlap": ""
                 },
                 "outputAnchors": [
@@ -286,7 +286,7 @@
                         "label": "Repo Link",
                         "name": "repoLink",
                         "type": "string",
-                        "placeholder": "https://github.com/FlowiseAI/Flowise",
+                        "placeholder": "",
                         "id": "github_0-input-repoLink-string"
                     },
                     {

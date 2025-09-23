@@ -194,7 +194,7 @@
                 "inputs": {
                     "vectorStore": "{{chroma_0.data.instance}}",
                     "name": "mst3k",
-                    "description": "Good for answering questions about Mystery Science Theater 3000 theme song"
+                    "description": "Good for answering questions about Mystery Science Theater 3000theme song"
                 },
                 "outputAnchors": [
                     {

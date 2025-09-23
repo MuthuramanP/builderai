@@ -22,7 +22,7 @@ import ManageScrapedLinksDialog from '@/ui-component/dialog/ManageScrapedLinksDi
 import CredentialInputHandler from '@/views/canvas/CredentialInputHandler'
 
 // const
-import { FLOWISE_CREDENTIAL_ID } from '@/store/constant'
+import { BUILDERAI_CREDENTIAL_ID } from '@/store/constant'
 
 // ===========================|| DocStoreInputHandler ||=========================== //
 
@@ -72,7 +72,7 @@ const DocStoreInputHandler = ({ inputParam, data, disabled = false }) => {
     }
 
     const getCredential = () => {
-        const credential = data.inputs.credential || data.inputs[FLOWISE_CREDENTIAL_ID]
+        const credential = data.inputs.credential || data.inputs[BUILDERAI_CREDENTIAL_ID]
         if (credential) {
             return { credential }
         }
@@ -133,7 +133,7 @@ const DocStoreInputHandler = ({ inputParam, data, disabled = false }) => {
                                 inputParam={inputParam}
                                 onSelect={(newValue) => {
                                     data.credential = newValue
-                                    data.inputs[FLOWISE_CREDENTIAL_ID] = newValue // in case data.credential is not updated
+                                    data.inputs[BUILDERAI_CREDENTIAL_ID] = newValue // in case data.credential is not updated
                                 }}
                             />
                         )}

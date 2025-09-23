@@ -149,9 +149,8 @@ const Variables = () => {
                 }
             } catch (error) {
                 enqueueSnackbar({
-                    message: `Failed to delete Variable: ${
-                        typeof error.response.data === 'object' ? error.response.data.message : error.response.data
-                    }`,
+                    message: `Failed to delete Variable: ${typeof error.response.data === 'object' ? error.response.data.message : error.response.data
+                        }`,
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'error',
@@ -210,6 +209,7 @@ const Variables = () => {
                                 onClick={addNew}
                                 startIcon={<IconPlus />}
                                 id='btn_createVariable'
+                                data-tour="add-variable"
                             >
                                 Add Variable
                             </StyledButton>
@@ -217,11 +217,11 @@ const Variables = () => {
                         {!isLoading && variables.length === 0 ? (
                             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} flexDirection='column'>
                                 <Box sx={{ p: 2, height: 'auto' }}>
-                                    <img
+                                    {/* <img
                                         style={{ objectFit: 'cover', height: '20vh', width: 'auto' }}
                                         src={VariablesEmptySVG}
                                         alt='VariablesEmptySVG'
-                                    />
+                                    /> */}
                                 </Box>
                                 <div>No Variables Yet</div>
                             </Stack>
@@ -230,23 +230,22 @@ const Variables = () => {
                                 sx={{ border: 1, borderColor: theme.palette.grey[900] + 25, borderRadius: 2 }}
                                 component={Paper}
                             >
-                                <Table sx={{ minWidth: 650 }} aria-label='simple table'>
+                                <Table sx={{ minWidth: 650, backgroundColor: "silver" }} aria-label='simple table'>
                                     <TableHead
                                         sx={{
-                                            backgroundColor: customization.isDarkMode
-                                                ? theme.palette.common.black
-                                                : theme.palette.grey[100],
-                                            height: 56
+                                            height: 56,
+                                            "& .MuiTableCell-root": {
+                                                color: "#000 !important",
+                                                fontWeight: 600
+                                            }
                                         }}
                                     >
                                         <TableRow>
                                             <StyledTableCell>Name</StyledTableCell>
                                             <StyledTableCell>Value</StyledTableCell>
                                             <StyledTableCell>Type</StyledTableCell>
-                                            <StyledTableCell>Last Updated</StyledTableCell>
-                                            <StyledTableCell>Created</StyledTableCell>
-                                            <StyledTableCell> </StyledTableCell>
-                                            <StyledTableCell> </StyledTableCell>
+                                            <StyledTableCell> Last Updated</StyledTableCell>
+                                            <StyledTableCell> Created</StyledTableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>

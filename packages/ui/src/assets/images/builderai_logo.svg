@@ -1,0 +1,19 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="builderAIGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Building blocks icon -->
+  <rect x="5" y="15" width="12" height="12" rx="2" fill="url(#builderAIGradient)"/>
+  <rect x="20" y="15" width="12" height="12" rx="2" fill="url(#builderAIGradient)" opacity="0.8"/>
+  <rect x="5" y="30" width="12" height="12" rx="2" fill="url(#builderAIGradient)" opacity="0.6"/>
+  <rect x="20" y="30" width="12" height="12" rx="2" fill="url(#builderAIGradient)" opacity="0.9"/>
+  
+  <!-- BuilderAI Text -->
+  <text x="45" y="35" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="700" fill="url(#builderAIGradient)">
+    Builder<tspan fill="#8B5CF6">AI</tspan>
+  </text>
+</svg>

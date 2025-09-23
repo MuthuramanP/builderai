@@ -5,7 +5,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { signIn } from '@/api/auth'
 import { StyledButton } from '@/ui-component/button/StyledButton'
 import MainCard from '@/ui-component/cards/MainCard'
-import logo from '@/assets/images/logo.png'
+import logo from '@/assets/images/logo2.png'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -54,7 +54,7 @@ const Login = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: 'linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)',
+                // background: 'linear-gradient(135deg,rgb(4, 12, 28) 0%,rgb(1, 6, 16) 100%)',
                 px: 2,
             }}
         >
@@ -112,9 +112,21 @@ const Login = () => {
                             fullWidth
                             variant="outlined"
                             size="medium"
-                            sx={{ mb: 3, borderRadius: 2 }}
+                            sx={{
+                                mb: 3,
+                                borderRadius: 2,
+                                '& .MuiOutlinedInput-root': {
+                                    backgroundColor: '#292e3a',
+                                    borderRadius: 2,
+                                },
+                                '& .MuiOutlinedInput-input': {
+                                    color: '#fff',
+                                },
+                                '& .MuiInputLabel-root': {
+                                    color: '#ccc',
+                                },
+                            }}
                         />
-
                         <TextField
                             label="Password"
                             name="user_pwd"
@@ -125,8 +137,20 @@ const Login = () => {
                             fullWidth
                             variant="outlined"
                             size="medium"
-                            sx={{ mb: 4, borderRadius: 2 }}
-                        />
+                            sx={{
+                                mb: 3,
+                                borderRadius: 2,
+                                '& .MuiOutlinedInput-root': {
+                                  backgroundColor: '#292e3a',
+                                  borderRadius: 2,
+                                },
+                                '& .MuiOutlinedInput-input': {
+                                  color: '#fff',
+                                },
+                                '& .MuiInputLabel-root': {
+                                  color: '#ccc',
+                                },
+                              }}                        />
 
                         <StyledButton
                             type="submit"
@@ -138,7 +162,7 @@ const Login = () => {
                             {loading ? <CircularProgress size={24} /> : 'Sign In'}
                         </StyledButton>
 
-                        <Typography variant="body2" align="center" color="textSecondary">
+                        {/* <Typography variant="body2" align="center" color="textSecondary">
                             New user?{' '}
                             <Link
                                 to="/signup"
@@ -150,7 +174,7 @@ const Login = () => {
                             >
                                 Register
                             </Link>
-                        </Typography>
+                        </Typography> */}
                     </Box>
                 </MainCard>
             </Box>

@@ -153,7 +153,7 @@ const Documents = () => {
                             exclusive
                             onChange={handleChange}
                         >
-                            <ToggleButton
+                            {/* <ToggleButton
                                 sx={{
                                     borderColor: theme.palette.grey[900] + 25,
                                     borderRadius: 2,
@@ -164,7 +164,7 @@ const Documents = () => {
                                 title='Card View'
                             >
                                 <IconLayoutGrid />
-                            </ToggleButton>
+                            </ToggleButton> */}
                             <ToggleButton
                                 sx={{
                                     borderColor: theme.palette.grey[900] + 25,
@@ -184,6 +184,7 @@ const Documents = () => {
                             onClick={addNew}
                             startIcon={<IconPlus />}
                             id='btn_createVariable'
+                            data-tour="add-docstore"
                         >
                             Add New
                         </StyledButton>
@@ -211,11 +212,14 @@ const Documents = () => {
                         </>
                     ) : (
                         <TableContainer sx={{ border: 1, borderColor: theme.palette.grey[900] + 25, borderRadius: 2 }} component={Paper}>
-                            <Table aria-label='documents table'>
+                            <Table style={{background: 'silver',}} aria-label='documents table'>
                                 <TableHead
                                     sx={{
-                                        backgroundColor: customization.isDarkMode ? theme.palette.common.black : theme.palette.grey[100],
-                                        height: 56
+                                        height: 56,
+                                        "& .MuiTableCell-root": {
+                                            color: "#000 !important",
+                                            fontWeight: 600
+                                        }
                                     }}
                                 >
                                     <TableRow>
@@ -326,11 +330,11 @@ const Documents = () => {
                     {!isLoading && (!docStores || docStores.length === 0) && (
                         <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} flexDirection='column'>
                             <Box sx={{ p: 2, height: 'auto' }}>
-                                <img
+                                {/* <img
                                     style={{ objectFit: 'cover', height: '20vh', width: 'auto' }}
                                     src={doc_store_empty}
                                     alt='doc_store_empty'
-                                />
+                                /> */}
                             </Box>
                             <div>No Document Stores Created Yet</div>
                         </Stack>

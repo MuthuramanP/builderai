@@ -17,35 +17,21 @@ import themeTypography from './typography'
 export const theme = (customization) => {
     const color = colors
 
-    const themeOption = customization.isDarkMode
-        ? {
-              colors: color,
-              heading: color.paper,
-              paper: color.darkPaper,
-              backgroundDefault: color.darkBackground,
-              background: color.darkPrimaryLight,
-              darkTextPrimary: color.darkTextPrimary,
-              darkTextSecondary: color.darkTextSecondary,
-              textDark: color.darkTextPrimary,
-              menuSelected: color.darkSecondaryDark,
-              menuSelectedBack: color.darkSecondaryLight,
-              divider: color.darkLevel1,
-              customization
-          }
-        : {
-              colors: color,
-              heading: color.grey900,
-              paper: color.paper,
-              backgroundDefault: '#F9F7FD',
-              background: color.paper,
-              darkTextPrimary: color.grey600,
-              darkTextSecondary: color.grey500,
-              textDark: color.grey900,
-              menuSelected: color.secondaryDark,
-              menuSelectedBack: color.secondaryLight,
-              divider: color.grey200,
-              customization
-          }
+    // Always use dark theme now
+    const themeOption = {
+        colors: color,
+        heading: color.darkTextTitle,
+        paper: color.darkPaper,
+        backgroundDefault: color.darkBackground,
+        background: color.darkPaper,
+        darkTextPrimary: color.darkTextPrimary,
+        darkTextSecondary: color.darkTextSecondary,
+        textDark: color.darkTextTitle,
+        menuSelected: color.primaryMain,
+        menuSelectedBack: color.darkLevel1,
+        divider: color.darkLevel1,
+        customization: { ...customization, isDarkMode: true }
+    }
 
     const themeOptions = {
         direction: 'ltr',

@@ -45,16 +45,20 @@ export const ToolsTable = ({ data, isLoading, onSelect }) => {
                 <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
                     <TableHead
                         sx={{
-                            backgroundColor: customization.isDarkMode ? theme.palette.common.black : theme.palette.grey[100],
-                            height: 56
+                            backgroundColor: "silver",
+                            height: 56,
+                            "& .MuiTableCell-root": {
+                                color: "#000",
+                                fontWeight: 600
+                            }
                         }}
                     >
                         <TableRow>
-                            <StyledTableCell component='th' scope='row' key='0'>
+                            <StyledTableCell style={{color: "#000"}} component="th" scope="row" key="0">
                                 Name
                             </StyledTableCell>
-                            <StyledTableCell key='1'>Description</StyledTableCell>
-                            <StyledTableCell component='th' scope='row' key='3'>
+                            <StyledTableCell style={{color: "#000"}} key="1">Description</StyledTableCell>
+                            <StyledTableCell component="th" scope="row" key="3">
                                 &nbsp;
                             </StyledTableCell>
                         </TableRow>

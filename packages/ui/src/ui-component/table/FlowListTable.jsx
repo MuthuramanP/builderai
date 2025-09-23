@@ -2,7 +2,6 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
-import { styled } from '@mui/material/styles'
 import {
     Box,
     Chip,
@@ -15,33 +14,14 @@ import {
     TableContainer,
     TableHead,
     TableRow,
-    TableSortLabel,
     Tooltip,
     Typography,
+    Button,
     useTheme
 } from '@mui/material'
-import { tableCellClasses } from '@mui/material/TableCell'
+import { ArrowUpward, ArrowDownward } from '@mui/icons-material'
 import FlowListMenu from '../button/FlowListMenu'
 import { Link } from 'react-router-dom'
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    borderColor: theme.palette.grey[900] + 25,
-
-    [`&.${tableCellClasses.head}`]: {
-        color: theme.palette.grey[900]
-    },
-    [`&.${tableCellClasses.body}`]: {
-        fontSize: 14,
-        height: 64
-    }
-}))
-
-const StyledTableRow = styled(TableRow)(() => ({
-    // hide last border
-    '&:last-child td, &:last-child th': {
-        border: 0
-    }
-}))
 
 const getLocalStorageKeyName = (name, isAgentCanvas) => {
     return (isAgentCanvas ? 'agentcanvas' : 'chatflowcanvas') + '_' + name
@@ -80,198 +60,187 @@ export const FlowListTable = ({ data, images, isLoading, filterFunction, updateF
         : []
 
     return (
-        <>
-            <TableContainer sx={{ border: 1, borderColor: theme.palette.grey[900] + 25, borderRadius: 2 }} component={Paper}>
-                <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
-                    <TableHead
-                        sx={{
-                            backgroundColor: customization.isDarkMode ? theme.palette.common.black : theme.palette.grey[100],
-                            height: 56
-                        }}
+        <TableContainer
+            component={Paper}
+            sx={{
+                borderRadius: 3,
+                overflow: 'hidden',
+                boxShadow: 3
+            }}
+        >
+            {/* Toolbar */}
+            <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                sx={{
+                    backgroundColor: customization.isDarkMode
+                        ? 'red'
+                        : 'silver',
+                    px: 2,
+                    py: 1.5,
+                    borderBottom: `1px solid ${theme.palette.divider}`
+                }}
+            >
+                <Typography variant="h6" sx={{ fontWeight: 600, fontSize: '14px', color: '#000' }}>
+                    Flow List
+                </Typography>
+                <Stack direction="row" color="#000" spacing={1}>
+                    <Button
+                        size="small"
+                        sx={{color: '#000'}}
+                        onClick={() => handleRequestSort('name')}
+                        startIcon={
+                            orderBy === 'name' ? (
+                                order === 'asc' ? <ArrowUpward /> : <ArrowDownward />
+                            ) : null
+                        }
                     >
-                        <TableRow>
-                            <StyledTableCell component='th' scope='row' style={{ width: '20%' }} key='0'>
-                                <TableSortLabel active={orderBy === 'name'} direction={order} onClick={() => handleRequestSort('name')}>
-                                    Name
-                                </TableSortLabel>
-                            </StyledTableCell>
-                            <StyledTableCell style={{ width: '25%' }} key='1'>
-                                Category
-                            </StyledTableCell>
-                            <StyledTableCell style={{ width: '30%' }} key='2'>
-                                Nodes
-                            </StyledTableCell>
-                            <StyledTableCell style={{ width: '15%' }} key='3'>
-                                <TableSortLabel
-                                    active={orderBy === 'updatedDate'}
-                                    direction={order}
-                                    onClick={() => handleRequestSort('updatedDate')}
-                                >
-                                    Last Modified Date
-                                </TableSortLabel>
-                            </StyledTableCell>
-                            <StyledTableCell style={{ width: '10%' }} key='4'>
-                                Actions
-                            </StyledTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {isLoading ? (
-                            <>
-                                <StyledTableRow>
-                                    <StyledTableCell>
-                                        <Skeleton variant='text' />
-                                    </StyledTableCell>
-                                    <StyledTableCell>
-                                        <Skeleton variant='text' />
-                                    </StyledTableCell>
-                                    <StyledTableCell>
-                                        <Skeleton variant='text' />
-                                    </StyledTableCell>
-                                    <StyledTableCell>
-                                        <Skeleton variant='text' />
-                                    </StyledTableCell>
-                                    <StyledTableCell>
-                                        <Skeleton variant='text' />
-                                    </StyledTableCell>
-                                </StyledTableRow>
-                                <StyledTableRow>
-                                    <StyledTableCell>
-                                        <Skeleton variant='text' />
-                                    </StyledTableCell>
-                                    <StyledTableCell>
-                                        <Skeleton variant='text' />
-                                    </StyledTableCell>
-                                    <StyledTableCell>
-                                        <Skeleton variant='text' />
-                                    </StyledTableCell>
-                                    <StyledTableCell>
-                                        <Skeleton variant='text' />
-                                    </StyledTableCell>
-                                    <StyledTableCell>
-                                        <Skeleton variant='text' />
-                                    </StyledTableCell>
-                                </StyledTableRow>
-                            </>
-                        ) : (
-                            <>
-                                {sortedData.filter(filterFunction).map((row, index) => (
-                                    <StyledTableRow key={index}>
-                                        <StyledTableCell key='0'>
+                        Sort by Name
+                    </Button>
+                    <Button
+                        size="small"
+                        sx={{color: '#000'}}
+                        onClick={() => handleRequestSort('updatedDate')}
+                        startIcon={
+                            orderBy === 'updatedDate' ? (
+                                order === 'asc' ? <ArrowUpward /> : <ArrowDownward />
+                            ) : null
+                        }
+                    >
+                        Sort by Date
+                    </Button>
+                </Stack>
+            </Stack>
+
+            <Table>
+                <TableHead>
+                    <TableRow sx={{ display: 'none' }}>
+                        <TableCell>Name</TableCell>
+                        <TableCell>Category</TableCell>
+                        <TableCell>Nodes</TableCell>
+                        <TableCell>Last Modified</TableCell>
+                        <TableCell>Actions</TableCell>
+                    </TableRow>
+                </TableHead>
+
+                <TableBody>
+                    {isLoading ? (
+                        Array.from({ length: 4 }).map((_, i) => (
+                            <TableRow key={i}>
+                                <TableCell colSpan={5}>
+                                    <Skeleton variant="rectangular" height={60} />
+                                </TableCell>
+                            </TableRow>
+                        ))
+                    ) : (
+                        sortedData.filter(filterFunction).map((row, index) => (
+                            <TableRow
+                                key={index}
+                                sx={{
+                                    '&:hover': { backgroundColor: theme.palette.action.hover },
+                                    borderBottom: `1px solid ${theme.palette.divider}`
+                                }}
+                            >
+                                <TableCell colSpan={5} sx={{ py: 2 }}>
+                                    <Stack
+                                        direction="row"
+                                        justifyContent="space-between"
+                                        alignItems="center"
+                                    >
+                                        {/* Left side: Name, Categories, Date */}
+                                        <Stack spacing={1}>
                                             <Tooltip title={row.templateName || row.name}>
                                                 <Typography
+                                                    component={Link}
+                                                    to={`/${isAgentCanvas ? 'agentcanvas' : 'canvas'}/${row.id}`}
                                                     sx={{
-                                                        display: '-webkit-box',
-                                                        fontSize: 14,
-                                                        fontWeight: 500,
-                                                        WebkitLineClamp: 2,
-                                                        WebkitBoxOrient: 'vertical',
-                                                        textOverflow: 'ellipsis',
-                                                        overflow: 'hidden'
+                                                        fontSize: 16,
+                                                        fontWeight: 600,
+                                                        textDecoration: 'none',
+                                                        color: theme.palette.primary.main,
+                                                        maxWidth: 280,
+                                                        whiteSpace: 'nowrap',
+                                                        overflow: 'hidden',
+                                                        textOverflow: 'ellipsis'
                                                     }}
                                                 >
-                                                    <Link
-                                                        to={`/${isAgentCanvas ? 'agentcanvas' : 'canvas'}/${row.id}`}
-                                                        style={{ color: '#2196f3', textDecoration: 'none' }}
-                                                    >
-                                                        {row.templateName || row.name}
-                                                    </Link>
+                                                    {row.templateName || row.name}
                                                 </Typography>
                                             </Tooltip>
-                                        </StyledTableCell>
-                                        <StyledTableCell key='1'>
-                                            <div
-                                                style={{
-                                                    display: 'flex',
-                                                    flexDirection: 'row',
-                                                    flexWrap: 'wrap',
-                                                    marginTop: 5
-                                                }}
-                                            >
-                                                &nbsp;
+
+                                            <Stack direction="row" spacing={1} flexWrap="wrap">
                                                 {row.category &&
                                                     row.category
                                                         .split(';')
-                                                        .map((tag, index) => (
-                                                            <Chip key={index} label={tag} style={{ marginRight: 5, marginBottom: 5 }} />
+                                                        .map((tag, idx) => (
+                                                            <Chip
+                                                                key={idx}
+                                                                label={tag}
+                                                                size="small"
+                                                            />
                                                         ))}
-                                            </div>
-                                        </StyledTableCell>
-                                        <StyledTableCell key='2'>
+                                            </Stack>
+
+                                            <Typography variant="caption" color="textSecondary">
+                                                Last Modified: {moment(row.updatedDate).format('MMMM Do, YYYY')}
+                                            </Typography>
+                                        </Stack>
+
+                                        {/* Right side: nodes + actions in one line */}
+                                        <Stack direction="row" spacing={1} alignItems="center">
                                             {images[row.id] && (
-                                                <Box
-                                                    sx={{
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        justifyContent: 'start',
-                                                        gap: 1
-                                                    }}
-                                                >
+                                                <Stack direction="row" spacing={1} alignItems="center">
                                                     {images[row.id]
-                                                        .slice(0, images[row.id].length > 5 ? 5 : images[row.id].length)
+                                                        .slice(0, 4)
                                                         .map((img) => (
                                                             <Box
                                                                 key={img}
                                                                 sx={{
-                                                                    width: 30,
-                                                                    height: 30,
+                                                                    width: 32,
+                                                                    height: 32,
                                                                     borderRadius: '50%',
-                                                                    backgroundColor: customization.isDarkMode
-                                                                        ? theme.palette.common.white
-                                                                        : theme.palette.grey[300] + 75
+                                                                    overflow: 'hidden',
+                                                                    bgcolor: customization.isDarkMode
+                                                                        ? theme.palette.grey[800]
+                                                                        : theme.palette.grey[200]
                                                                 }}
                                                             >
                                                                 <img
+                                                                    src={img}
+                                                                    alt=""
                                                                     style={{
                                                                         width: '100%',
                                                                         height: '100%',
-                                                                        padding: 5,
-                                                                        objectFit: 'contain'
+                                                                        objectFit: 'cover'
                                                                     }}
-                                                                    alt=''
-                                                                    src={img}
                                                                 />
                                                             </Box>
                                                         ))}
-                                                    {images[row.id].length > 5 && (
-                                                        <Typography
-                                                            sx={{
-                                                                alignItems: 'center',
-                                                                display: 'flex',
-                                                                fontSize: '.9rem',
-                                                                fontWeight: 200
-                                                            }}
-                                                        >
-                                                            + {images[row.id].length - 5} More
+                                                    {images[row.id].length > 4 && (
+                                                        <Typography variant="caption">
+                                                            +{images[row.id].length - 4}
                                                         </Typography>
                                                     )}
-                                                </Box>
+                                                </Stack>
                                             )}
-                                        </StyledTableCell>
-                                        <StyledTableCell key='3'>{moment(row.updatedDate).format('MMMM Do, YYYY')}</StyledTableCell>
-                                        <StyledTableCell key='4'>
-                                            <Stack
-                                                direction={{ xs: 'column', sm: 'row' }}
-                                                spacing={1}
-                                                justifyContent='center'
-                                                alignItems='center'
-                                            >
-                                                <FlowListMenu
-                                                    isAgentCanvas={isAgentCanvas}
-                                                    chatflow={row}
-                                                    setError={setError}
-                                                    updateFlowsApi={updateFlowsApi}
-                                                />
-                                            </Stack>
-                                        </StyledTableCell>
-                                    </StyledTableRow>
-                                ))}
-                            </>
-                        )}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </>
+
+                                            {/* Actions menu */}
+                                            <FlowListMenu
+                                                isAgentCanvas={isAgentCanvas}
+                                                chatflow={row}
+                                                setError={setError}
+                                                updateFlowsApi={updateFlowsApi}
+                                            />
+                                        </Stack>
+                                    </Stack>
+                                </TableCell>
+                            </TableRow>
+                        ))
+                    )}
+                </TableBody>
+            </Table>
+        </TableContainer>
     )
 }
 

@@ -13,9 +13,9 @@ import { drawerWidth, headerHeight } from '@/store/constant'
 import { SET_MENU } from '@/store/actions'
 
 // styles
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
-    ...theme.typography.mainContent,
-    ...(!open && {
+const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+    ({ theme, open }) => ({
+        ...theme.typography.mainContent,
         backgroundColor: 'transparent',
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
@@ -24,35 +24,24 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({
             duration: theme.transitions.duration.leavingScreen
         }),
         marginRight: 0,
+        padding: '16px',
         [theme.breakpoints.up('md')]: {
-            marginLeft: -drawerWidth,
+            marginLeft: open ? 0 : -drawerWidth,
             width: `calc(100% - ${drawerWidth}px)`
         },
         [theme.breakpoints.down('md')]: {
-            marginLeft: '20px',
+            marginLeft: open ? 0 : '20px',
             width: `calc(100% - ${drawerWidth}px)`,
             padding: '16px'
         },
         [theme.breakpoints.down('sm')]: {
-            marginLeft: '10px',
+            marginLeft: open ? 0 : '10px',
             width: `calc(100% - ${drawerWidth}px)`,
             padding: '16px',
             marginRight: '10px'
         }
-    }),
-    ...(open && {
-        backgroundColor: 'transparent',
-        transition: theme.transitions.create('all', {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen
-        }),
-        marginLeft: 0,
-        marginRight: 0,
-        borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 0,
-        width: `calc(100% - ${drawerWidth}px)`
     })
-}))
+)
 
 // ==============================|| MAIN LAYOUT ||============================== //
 
@@ -73,7 +62,8 @@ const MainLayout = () => {
     }, [matchDownMd])
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', height: '100vh' }}>
+            {/* Sidebar */}
             <CssBaseline />
             {/* header */}
             <AppBar
@@ -90,13 +80,14 @@ const MainLayout = () => {
                     <Header handleLeftDrawerToggle={handleLeftDrawerToggle} />
                 </Toolbar>
             </AppBar>
-
-            {/* drawer */}
             <Sidebar drawerOpen={leftDrawerOpened} drawerToggle={handleLeftDrawerToggle} />
 
-            {/* main content */}
+            {/* Main content */}
             <Main theme={theme} open={leftDrawerOpened}>
-                <Outlet />
+                {/* Wrap Outlet content in Box to avoid Toolbar padding issues */}
+                <Box sx={{ width: '100%', minHeight: '100%' }}>
+                    <Outlet />
+                </Box>
             </Main>
         </Box>
     )

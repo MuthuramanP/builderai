@@ -71,7 +71,7 @@ const Input = ({ inputParam, value, nodes, edges, nodeId, onChange, disabled = f
                             style: {
                                 border: 'none',
                                 background: 'none',
-                                color: '#212121'
+                                color: '#fff'
                             }
                         }}
                         sx={{

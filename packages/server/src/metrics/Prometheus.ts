@@ -46,7 +46,7 @@ export class Prometheus implements IMetricsProvider {
         // version, http_request_duration_ms, http_requests_total
         const versionGaugeCounter = new promClient.Gauge({
             name: 'flowise_version_info',
-            help: 'Flowise version info.',
+            help: 'NuAgentOne version info.',
             labelNames: ['version']
         })
 

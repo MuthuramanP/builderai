@@ -1,98 +1,67 @@
 // assets
 import {
-    IconUsersGroup,
-    IconHierarchy,
-    IconBuildingStore,
-    IconKey,
-    IconTool,
-    IconLock,
+    IconBraces,
+    IconUserBolt, 
     IconRobot,
+    IconSparkles,
+    IconDatabase,
+    IconTool,
+    IconKey,
     IconVariable,
-    IconFiles
+    IconSettings
 } from '@tabler/icons-react'
 
 // constant
-const icons = { IconUsersGroup, IconHierarchy, IconBuildingStore, IconKey, IconTool, IconLock, IconRobot, IconVariable, IconFiles }
+const icons = { 
+    IconBraces,
+    IconUserBolt, 
+    IconRobot,
+    IconSparkles,
+    IconDatabase,
+    IconTool,
+    IconKey,
+    IconVariable,
+    IconSettings
+}
 
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
 
 const dashboard = {
     id: 'dashboard',
-    title: '',
+    title: 'Workspace',
     type: 'group',
     children: [
         {
-            id: 'chatflows',
-            title: 'Chatflows',
+            id: 'workflows',
+            title: 'AI Workflows',
             type: 'item',
             url: '/chatflows',
-            icon: icons.IconHierarchy,
-            breadcrumbs: true
+            icon: icons.IconBraces,
+            breadcrumbs: false
         },
         {
-            id: 'agentflows',
-            title: 'Agentflows',
+            id: 'agents',
+            title: 'AI Agents',  
             type: 'item',
             url: '/agentflows',
-            icon: icons.IconUsersGroup,
-            breadcrumbs: true,
-            isBeta: true
+            icon: icons.IconUserBolt,
+            breadcrumbs: false
         },
         {
             id: 'assistants',
-            title: 'Assistants',
+            title: 'Smart Assistants',
             type: 'item',
             url: '/assistants',
             icon: icons.IconRobot,
-            breadcrumbs: true
+            breadcrumbs: false
         },
         {
-            id: 'marketplaces',
-            title: 'Marketplaces',
+            id: 'marketplace',
+            title: 'Template Gallery',
             type: 'item',
             url: '/marketplaces',
-            icon: icons.IconBuildingStore,
-            breadcrumbs: true
-        },
-        {
-            id: 'tools',
-            title: 'Tools',
-            type: 'item',
-            url: '/tools',
-            icon: icons.IconTool,
-            breadcrumbs: true
-        },
-        {
-            id: 'credentials',
-            title: 'Credentials',
-            type: 'item',
-            url: '/credentials',
-            icon: icons.IconLock,
-            breadcrumbs: true
-        },
-        {
-            id: 'variables',
-            title: 'Variables',
-            type: 'item',
-            url: '/variables',
-            icon: icons.IconVariable,
-            breadcrumbs: true
-        },
-        {
-            id: 'apikey',
-            title: 'API Keys',
-            type: 'item',
-            url: '/apikey',
-            icon: icons.IconKey,
-            breadcrumbs: true
-        },
-        {
-            id: 'document-stores',
-            title: 'Document Stores',
-            type: 'item',
-            url: '/document-stores',
-            icon: icons.IconFiles,
-            breadcrumbs: true
+            icon: icons.IconSparkles,
+            breadcrumbs: false
         }
     ]
 }

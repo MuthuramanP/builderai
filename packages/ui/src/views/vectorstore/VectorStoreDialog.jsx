@@ -266,8 +266,6 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
             return EmbedSVG
         } else if (codeLang === 'cURL') {
             return cURLSVG
-        } else if (codeLang === 'Share Chatbot') {
-            return ShareChatbotSVG
         } else if (codeLang === 'Configuration') {
             return settingsSVG
         }
@@ -578,7 +576,7 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                                                                             <a
                                                                                 rel='noreferrer'
                                                                                 target='_blank'
-                                                                                href='https://docs.flowiseai.com/using-flowise/api#override-config'
+                                                                                href='https:///using-flowise/api#override-config'
                                                                             >
                                                                                 here
                                                                             </a>{' '}

@@ -139,7 +139,7 @@ const Agentflows = () => {
                             exclusive
                             onChange={handleChange}
                         >
-                            <ToggleButton
+                            {/* <ToggleButton
                                 sx={{
                                     borderColor: theme.palette.grey[900] + 25,
                                     borderRadius: 2,
@@ -150,7 +150,7 @@ const Agentflows = () => {
                                 title='Card View'
                             >
                                 <IconLayoutGrid />
-                            </ToggleButton>
+                            </ToggleButton> */}
                             <ToggleButton
                                 sx={{
                                     borderColor: theme.palette.grey[900] + 25,
@@ -198,13 +198,13 @@ const Agentflows = () => {
                     {!isLoading && (!getAllAgentflows.data || getAllAgentflows.data.length === 0) && (
                         <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} flexDirection='column'>
                             <Box sx={{ p: 2, height: 'auto' }}>
-                                <img
+                                {/* <img
                                     style={{ objectFit: 'cover', height: '12vh', width: 'auto' }}
                                     src={AgentsEmptySVG}
                                     alt='AgentsEmptySVG'
-                                />
+                                /> */}
                             </Box>
-                            <div>No Agents Yet</div>
+                            <div>Add your first Agent</div>
                         </Stack>
                     )}
                 </Stack>

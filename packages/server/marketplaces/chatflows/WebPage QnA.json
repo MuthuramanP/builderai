@@ -150,7 +150,7 @@
                 ],
                 "inputAnchors": [],
                 "inputs": {
-                    "chunkSize": "4000",
+                    "chunkSize": "3000",
                     "chunkOverlap": ""
                 },
                 "outputAnchors": [
@@ -364,7 +364,7 @@
                     }
                 ],
                 "inputs": {
-                    "url": "https://flowiseai.com/",
+                    "url": "https://flowiseai.comaaaaa/",
                     "textSplitter": "{{htmlToMarkdownTextSplitter_0.data.instance}}",
                     "relativeLinksMethod": "",
                     "limit": "",

@@ -118,11 +118,11 @@ Flowise has 3 different modules in a single mono repository.
 
 ## 🌱 Env Variables
 
-Flowise support different environment variables to configure your instance. You can specify the following variables in the `.env` file inside `packages/server` folder. Read [more](https://docs.flowiseai.com/environment-variables)
+Flowise support different environment variables to configure your instance. You can specify the following variables in the `.env` file inside `packages/server` folder. Read [more](https:///environment-variables)
 
 | Variable                     | Description                                                                      | Type                                             | Default                             |
 | ---------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------- |
-| PORT                         | The HTTP port Flowise runs on                                                    | Number                                           | 3000                                |
+| PORT                         | The HTTP port Flowise runs on                                                    | Number                                           | 3000                               |
 | CORS_ORIGINS                 | The allowed origins for all cross-origin HTTP calls                              | String                                           |                                     |
 | IFRAME_ORIGINS               | The allowed origins for iframe src embedding                                     | String                                           |                                     |
 | FLOWISE_USERNAME             | Username to login                                                                | String                                           |                                     |
@@ -163,7 +163,7 @@ Flowise support different environment variables to configure your instance. You 
 You can also specify the env variables when using `npx`. For example:
 
 ```
-npx flowise start --PORT=3000 --DEBUG=true
+npx flowise start --PORT=3000--DEBUG=true
 ```
 
 ## 📖 Contribute to Docs

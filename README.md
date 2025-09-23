@@ -58,7 +58,7 @@ Download and Install [NodeJS](https://nodejs.org/en/download) >= 18.15.0
 2. Run image:
 
     ```bash
-    docker run -d --name flowise -p 3000:3000 flowise
+    docker run -d --name flowise -p 3000:3000flowise
     ```
 
 3. Stop image:
@@ -152,29 +152,29 @@ Flowise support different environment variables to configure your instance. You 
 
 ## 📖 Documentation
 
-[Flowise Docs](https://docs.flowiseai.com/)
+[Flowise Docs](https:///)
 
 ## 🌐 Self Host
 
-Deploy Flowise self-hosted in your existing infrastructure, we support various [deployments](https://docs.flowiseai.com/configuration/deployment)
+Deploy Flowise self-hosted in your existing infrastructure, we support various [deployments](https:///configuration/deployment)
 
--   [AWS](https://docs.flowiseai.com/configuration/deployment/aws)
--   [Azure](https://docs.flowiseai.com/configuration/deployment/azure)
--   [Digital Ocean](https://docs.flowiseai.com/configuration/deployment/digital-ocean)
--   [GCP](https://docs.flowiseai.com/configuration/deployment/gcp)
+-   [AWS](https:///configuration/deployment/aws)
+-   [Azure](https:///configuration/deployment/azure)
+-   [Digital Ocean](https:///configuration/deployment/digital-ocean)
+-   [GCP](https:///configuration/deployment/gcp)
 -   [Alibaba Cloud](https://computenest.console.aliyun.com/service/instance/create/default?type=user&ServiceName=Flowise社区版)
 -   <details>
       <summary>Others</summary>
 
-    -   [Railway](https://docs.flowiseai.com/configuration/deployment/railway)
+    -   [Railway](https:///configuration/deployment/railway)
 
         [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/pn4G8S?referralCode=WVNPD9)
 
-    -   [Render](https://docs.flowiseai.com/configuration/deployment/render)
+    -   [Render](https:///configuration/deployment/render)
 
-        [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://docs.flowiseai.com/configuration/deployment/render)
+        [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https:///configuration/deployment/render)
 
-    -   [HuggingFace Spaces](https://docs.flowiseai.com/deployment/hugging-face)
+    -   [HuggingFace Spaces](https:///deployment/hugging-face)
 
         <a href="https://huggingface.co/spaces/FlowiseAI/Flowise"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm.svg" alt="HuggingFace Spaces"></a>
 
@@ -194,7 +194,7 @@ Deploy Flowise self-hosted in your existing infrastructure, we support various [
 
 ## ☁️ Flowise Cloud
 
-[Get Started with Flowise Cloud](https://flowiseai.com/)
+[Get Started with Flowise Cloud](https://builder.dev.nusummituat.com//)
 
 ## 🙋 Support
 

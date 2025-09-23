@@ -4,7 +4,7 @@ import { Box, Typography, Alert, CircularProgress, TextField } from '@mui/materi
 import { signUp } from '@/api/auth'
 import { StyledButton } from '@/ui-component/button/StyledButton'
 import MainCard from '@/ui-component/cards/MainCard'
-import logo from '@/assets/images/logo.png'
+import logo from '@/assets/images/logo2.png'
 
 const Signup = () => {
     const navigate = useNavigate()

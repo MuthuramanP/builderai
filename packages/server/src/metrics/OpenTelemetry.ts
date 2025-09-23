@@ -87,7 +87,7 @@ export class OpenTelemetry implements IMetricsProvider {
         // in addition to the enum counters, add a few more custom counters
 
         const versionGuage = meter.createGauge('flowise_version', {
-            description: 'Flowise version'
+            description: 'NuAgentOne version'
         })
         // remove the last dot from the version string, e.g. 2.1.3 -> 2.13 (guage needs a number - float)
         const formattedVersion = flowiseVersion.version.replace(/\.(\d+)$/, '$1')

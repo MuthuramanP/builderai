@@ -43,7 +43,7 @@ import CredentialInputHandler from './CredentialInputHandler'
 import { getAvailableNodesForVariable, getCustomConditionOutputs, getInputVariables, isValidConnection } from '@/utils/genericHelper'
 
 // const
-import { FLOWISE_CREDENTIAL_ID } from '@/store/constant'
+import { BUILDERAI_CREDENTIAL_ID } from '@/store/constant'
 
 const EDITABLE_OPTIONS = ['selectedTool', 'selectedAssistant']
 
@@ -628,7 +628,7 @@ const NodeInputHandler = ({
                                 inputParam={inputParam}
                                 onSelect={(newValue) => {
                                     data.credential = newValue
-                                    data.inputs[FLOWISE_CREDENTIAL_ID] = newValue // in case data.credential is not updated
+                                    data.inputs[BUILDERAI_CREDENTIAL_ID] = newValue // in case data.credential is not updated
                                 }}
                             />
                         )}

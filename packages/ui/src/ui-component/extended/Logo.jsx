@@ -1,5 +1,5 @@
-import logo from '@/assets/images/logo.png'
-import logoDark from '@/assets/images/logo-white.png'
+import logo from '@/assets/images/logo2.png'
+import logoDark from '@/assets/images/logo2.png'
 
 import { useSelector } from 'react-redux'
 
@@ -11,9 +11,9 @@ const Logo = () => {
     return (
         <div style={{ alignItems: 'center', display: 'flex', flexDirection: 'row' }}>
             <img
-                style={{ objectFit: 'contain', height: 'auto', width: 170 }}
+                style={{ objectFit: 'contain', height: 'auto', width: 200 }}
                 src={customization.isDarkMode ? logoDark : logo}
-                alt='logo'
+                alt='BuilderAI Logo'
             />
         </div>
     )

@@ -116,11 +116,11 @@ Flowise 在一个单一的单体存储库中有 3 个不同的模块。
 
 ## 🌱 环境变量
 
-Flowise 支持不同的环境变量来配置您的实例。您可以在 `packages/server` 文件夹中的 `.env` 文件中指定以下变量。阅读[更多信息](https://docs.flowiseai.com/environment-variables)
+Flowise 支持不同的环境变量来配置您的实例。您可以在 `packages/server` 文件夹中的 `.env` 文件中指定以下变量。阅读[更多信息](https:///environment-variables)
 
 | 变量名                       | 描述                                                    | 类型                                            | 默认值                              |
 | ---------------------------- | ------------------------------------------------------- | ----------------------------------------------- | ----------------------------------- | --- |
-| PORT                         | Flowise 运行的 HTTP 端口                                | 数字                                            | 3000                                |
+| PORT                         | Flowise 运行的 HTTP 端口                                | 数字                                            | 3000                               |
 | FLOWISE_USERNAME             | 登录用户名                                              | 字符串                                          |                                     |
 | FLOWISE_PASSWORD             | 登录密码                                                | 字符串                                          |                                     |
 | FLOWISE_FILE_SIZE_LIMIT      | 上传文件大小限制                                        | 字符串                                          | 50mb                                |     |
@@ -156,7 +156,7 @@ Flowise 支持不同的环境变量来配置您的实例。您可以在 `package
 您也可以在使用 `npx` 时指定环境变量。例如：
 
 ```
-npx flowise start --PORT=3000 --DEBUG=true
+npx flowise start --PORT=3000--DEBUG=true
 ```
 
 ## 📖 贡献文档

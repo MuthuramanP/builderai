@@ -2,7 +2,7 @@
     "name": "flowise",
     "version": "2.2.7-patch.1",
     "private": true,
-    "homepage": "https://flowiseai.com",
+    "homepage": "https://builder.dev.nusummituat.com/",
     "workspaces": [
         "packages/*",
         "flowise",

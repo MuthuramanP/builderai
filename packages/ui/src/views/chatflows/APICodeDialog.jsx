@@ -91,7 +91,9 @@ const APICodeDialog = ({ show, dialogProps, onCancel }) => {
     const apiConfig = chatflow?.apiConfig ? JSON.parse(chatflow.apiConfig) : {}
     const overrideConfigStatus = apiConfig?.overrideConfig?.status !== undefined ? apiConfig.overrideConfig.status : false
 
-    const codes = ['Embed', 'Python', 'JavaScript', 'cURL', 'Share Chatbot']
+    const codes = ['Embed', 'Python', 'JavaScript', 'cURL',
+        // 'Share Chatbot'
+    ]
     const [value, setValue] = useState(0)
     const [keyOptions, setKeyOptions] = useState([])
     const [apiKeys, setAPIKeys] = useState([])
@@ -378,8 +380,8 @@ query({"question": "Hey, how are you?"}).then((response) => {
             return EmbedSVG
         } else if (codeLang === 'cURL') {
             return cURLSVG
-        } else if (codeLang === 'Share Chatbot') {
-            return ShareChatbotSVG
+            // } else if (codeLang === 'Share Chatbot') {
+            //     return ShareChatbotSVG
         } else if (codeLang === 'Configuration') {
             return settingsSVG
         }
@@ -705,14 +707,16 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                 <div style={{ marginTop: 10 }}></div>
                 {codes.map((codeLang, index) => (
                     <TabPanel key={index} value={value} index={index}>
-                        {(codeLang === 'Embed' || codeLang === 'Share Chatbot') && chatflowApiKeyId && (
-                            <>
-                                <p>You cannot use API key while embedding/sharing chatbot.</p>
-                                <p>
-                                    Please select <b>&quot;No Authorization&quot;</b> from the dropdown at the top right corner.
-                                </p>
-                            </>
-                        )}
+                        {(codeLang === 'Embed'
+                            // || codeLang === 'Share Chatbot'
+                        ) && chatflowApiKeyId && (
+                                <>
+                                    <p>You cannot use API key while embedding/sharing chatbot.</p>
+                                    <p>
+                                        Please select <b>&quot;No Authorization&quot;</b> from the dropdown at the top right corner.
+                                    </p>
+                                </>
+                            )}
                         {codeLang === 'Embed' && !chatflowApiKeyId && <EmbedChat chatflowid={dialogProps.chatflowid} />}
                         {codeLang !== 'Embed' && codeLang !== 'Share Chatbot' && codeLang !== 'Configuration' && (
                             <>
@@ -756,7 +760,7 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                                                     <a
                                                         rel='noreferrer'
                                                         target='_blank'
-                                                        href='https://docs.flowiseai.com/using-flowise/api#override-config'
+                                                        href='https:///using-flowise/api#override-config'
                                                     >
                                                         here
                                                     </a>{' '}
@@ -845,8 +849,8 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                                                         ? getConfigCodeWithFormDataWithAuth(codeLang, getConfigApi.data)
                                                         : getConfigCodeWithAuthorization(codeLang, getConfigApi.data)
                                                     : dialogProps.isFormDataRequired
-                                                    ? getConfigCodeWithFormData(codeLang, getConfigApi.data)
-                                                    : getConfigCode(codeLang, getConfigApi.data)
+                                                        ? getConfigCodeWithFormData(codeLang, getConfigApi.data)
+                                                        : getConfigCode(codeLang, getConfigApi.data)
                                             }
                                             language={getLang(codeLang)}
                                             showLineNumbers={false}
@@ -894,7 +898,7 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                                 {getIsChatflowStreamingApi.data?.isStreaming && (
                                     <p>
                                         Read&nbsp;
-                                        <a rel='noreferrer' target='_blank' href='https://docs.flowiseai.com/using-flowise/streaming'>
+                                        <a rel='noreferrer' target='_blank' href='https:///using-flowise/streaming'>
                                             here
                                         </a>
                                         &nbsp;on how to stream response back to application
@@ -902,9 +906,9 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                                 )}
                             </>
                         )}
-                        {codeLang === 'Share Chatbot' && !chatflowApiKeyId && (
+                        {/* {codeLang === 'Share Chatbot' && !chatflowApiKeyId && (
                             <ShareChatbot isSessionMemory={dialogProps.isSessionMemory} isAgentCanvas={dialogProps.isAgentCanvas} />
-                        )}
+                        )} */}
                     </TabPanel>
                 ))}
             </DialogContent>

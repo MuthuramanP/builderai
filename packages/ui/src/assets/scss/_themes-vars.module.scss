@@ -1,17 +1,16 @@
 
-// paper & background
 $paper: #ffffff;
 
-// primary - Purple theme
-$primaryLight: #F3F0FF;
-$primaryMain: #A78BFA;   // Soft purple
-$primaryDark: #8B5CF6;
-$primary200: #C4B5FD;
-$primary800: #7C3AED;
+// primary - BuilderAI Brand (Gradient Blue to Purple)
+$primaryLight: #EBF4FF;
+$primaryMain: #3B82F6;   // Modern blue
+$primaryDark: #1E40AF;
+$primary200: #93C5FD;
+$primary800: #1E3A8A;
 
-// secondary - Purple accents
-$secondaryLight: #E9DFFB;  // Light purple for hover/selected states
-$secondaryMain: #A78BFA;   // Soft purple
+// secondary - Purple accents for BuilderAI
+$secondaryLight: #F3E8FF;  // Light purple for hover/selected states
+$secondaryMain: #8B5CF6;   // Vibrant purple
 $secondaryDark: #7C3AED;   // Dark purple for active states
 $secondary200: #C4B5FD;
 $secondary800: #6D28D9;
@@ -57,32 +56,32 @@ $transparent: #ffffff00;
 
 // ==============================|| DARK THEME VARIANTS ||============================== //
 
-// paper & background
-$darkBackground: #0F172A;
-$darkPaper: #1E293B;
+// paper & background - All dark theme now
+$darkBackground: #030712;
+$darkPaper: #111827;
 
-// dark 800 & 900
-$darkLevel1: #334155;
-$darkLevel2: #475569;
+// dark levels for depth
+$darkLevel1: #1F2937;
+$darkLevel2: #374151;
 
-// primary dark
-$darkPrimaryLight: #1E293B;
-$darkPrimaryMain: #A78BFA;
-$darkPrimaryDark: #8B5CF6;
-$darkPrimary200: #C4B5FD;
-$darkPrimary800: #7C3AED;
+// primary dark - BuilderAI Green Theme
+$darkPrimaryLight: #065F46;
+$darkPrimaryMain: #10B981;
+$darkPrimaryDark: #059669;
+$darkPrimary200: #34D399;
+$darkPrimary800: #4d9597;
 
-// secondary dark
-$darkSecondaryLight: #334155;
-$darkSecondaryMain: #A78BFA;
-$darkSecondaryDark: #C4B5FD;
-$darkSecondary200: #475569;
-$darkSecondary800: #7C3AED;
+// secondary dark - Darker accents
+$darkSecondaryLight: #1F2937;
+$darkSecondaryMain: #374151;
+$darkSecondaryDark: #4B5563;
+$darkSecondary200: #6B7280;
+$darkSecondary800: #111827;
 
-// text variants
-$darkTextTitle: #F1F5F9;
-$darkTextPrimary: #E2E8F0;
-$darkTextSecondary: #94A3B8;
+// text variants - Light text on dark
+$darkTextTitle: #F9FAFB;
+$darkTextPrimary: #F3F4F6;
+$darkTextSecondary: #D1D5DB;
 
 // ==============================|| JAVASCRIPT ||============================== //
 

@@ -1,10 +1,10 @@
 <!-- markdownlint-disable MD030 -->
 
-# Flowise UI
+# NuAgentOne UI
 
 English | [中文](./README-ZH.md)
 
-React frontend ui for Flowise.
+React frontend ui for NuAgentOne.
 
 ![Flowise](https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.gif?raw=true)
 

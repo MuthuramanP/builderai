@@ -383,6 +383,7 @@ const APIKey = () => {
                                 onClick={addNew}
                                 startIcon={<IconPlus />}
                                 id='btn_createApiKey'
+                                data-tour="create-key"
                             >
                                 Create Key
                             </StyledButton>
@@ -390,11 +391,11 @@ const APIKey = () => {
                         {!isLoading && apiKeys.length <= 0 ? (
                             <Stack sx={{ alignItems: 'center', justifyContent: 'center' }} flexDirection='column'>
                                 <Box sx={{ p: 2, height: 'auto' }}>
-                                    <img
+                                    {/* <img
                                         style={{ objectFit: 'cover', height: '20vh', width: 'auto' }}
                                         src={APIEmptySVG}
                                         alt='APIEmptySVG'
-                                    />
+                                    /> */}
                                 </Box>
                                 <div>No API Keys Yet</div>
                             </Stack>

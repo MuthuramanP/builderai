@@ -33,38 +33,38 @@ FLOWISE_PASSWORD=1234
 
 ## 🌱 环境变量
 
-Flowise 支持不同的环境变量来配置您的实例。您可以在`packages/server`文件夹中的`.env`文件中指定以下变量。阅读[更多](https://docs.flowiseai.com/environment-variables)
+Flowise 支持不同的环境变量来配置您的实例。您可以在`packages/server`文件夹中的`.env`文件中指定以下变量。阅读[更多](https:///environment-variables)
 
 您还可以在使用`npx`时指定环境变量。例如：
 
 ```
-npx flowise start --PORT=3000 --DEBUG=true
+npx flowise start --PORT=3000--DEBUG=true
 ```
 
 ## 📖 文档
 
-[Flowise 文档](https://docs.flowiseai.com/)
+[Flowise 文档](https:///)
 
 ## 🌐 自托管
 
-在您现有的基础设施中部署自托管的 Flowise，我们支持各种[部署](https://docs.flowiseai.com/configuration/deployment)
+在您现有的基础设施中部署自托管的 Flowise，我们支持各种[部署](https:///configuration/deployment)
 
--   [AWS](https://docs.flowiseai.com/deployment/aws)
--   [Azure](https://docs.flowiseai.com/deployment/azure)
--   [Digital Ocean](https://docs.flowiseai.com/deployment/digital-ocean)
--   [GCP](https://docs.flowiseai.com/deployment/gcp)
+-   [AWS](https:///deployment/aws)
+-   [Azure](https:///deployment/azure)
+-   [Digital Ocean](https:///deployment/digital-ocean)
+-   [GCP](https:///deployment/gcp)
 -   <details>
       <summary>其他</summary>
 
-    -   [Railway](https://docs.flowiseai.com/deployment/railway)
+    -   [Railway](https:///deployment/railway)
 
         [![在 Railway 上部署](https://railway.app/button.svg)](https://railway.app/template/pn4G8S?referralCode=WVNPD9)
 
-    -   [Render](https://docs.flowiseai.com/deployment/render)
+    -   [Render](https:///deployment/render)
 
-        [![部署到 Render](https://render.com/images/deploy-to-render-button.svg)](https://docs.flowiseai.com/deployment/render)
+        [![部署到 Render](https://render.com/images/deploy-to-render-button.svg)](https:///deployment/render)
 
-    -   [HuggingFace Spaces](https://docs.flowiseai.com/deployment/hugging-face)
+    -   [HuggingFace Spaces](https:///deployment/hugging-face)
 
         <a href="https://huggingface.co/spaces/FlowiseAI/Flowise"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm.svg" alt="HuggingFace Spaces"></a>
 
@@ -84,7 +84,7 @@ npx flowise start --PORT=3000 --DEBUG=true
 
 ## ☁️ 云托管
 
-[开始使用云托管](https://flowiseai.com/)
+[开始使用云托管](https://builder.dev.nusummituat.com//)
 
 ## 🙋 支持
 

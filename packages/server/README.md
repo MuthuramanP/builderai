@@ -38,7 +38,7 @@ Flowise support different environment variables to configure your instance. You 
 You can also specify the env variables when using `npx`. For example:
 
 ```
-npx flowise start --PORT=3000 --DEBUG=true
+npx flowise start --PORT=3000--DEBUG=true
 ```
 
 ## 📖 Tests
@@ -56,26 +56,26 @@ pnpm run e2e
 
 ## 📖 Documentation
 
-[Flowise Docs](https://docs.flowiseai.com/)
+[Flowise Docs](https:///)
 
 ## 🌐 Self Host
 
--   [AWS](https://docs.flowiseai.com/deployment/aws)
--   [Azure](https://docs.flowiseai.com/deployment/azure)
--   [Digital Ocean](https://docs.flowiseai.com/deployment/digital-ocean)
--   [GCP](https://docs.flowiseai.com/deployment/gcp)
+-   [AWS](https:///deployment/aws)
+-   [Azure](https:///deployment/azure)
+-   [Digital Ocean](https:///deployment/digital-ocean)
+-   [GCP](https:///deployment/gcp)
 -   <details>
       <summary>Others</summary>
 
-    -   [Railway](https://docs.flowiseai.com/deployment/railway)
+    -   [Railway](https:///deployment/railway)
 
         [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/pn4G8S?referralCode=WVNPD9)
 
-    -   [Render](https://docs.flowiseai.com/deployment/render)
+    -   [Render](https:///deployment/render)
 
-        [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://docs.flowiseai.com/deployment/render)
+        [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https:///deployment/render)
 
-    -   [HuggingFace Spaces](https://docs.flowiseai.com/deployment/hugging-face)
+    -   [HuggingFace Spaces](https:///deployment/hugging-face)
 
         <a href="https://huggingface.co/spaces/FlowiseAI/Flowise"><img src="https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-sm.svg" alt="HuggingFace Spaces"></a>
 
@@ -95,7 +95,7 @@ pnpm run e2e
 
 ## ☁️ Flowise Cloud
 
-[Get Started with Flowise Cloud](https://flowiseai.com/)
+[Get Started with Flowise Cloud](https://builder.dev.nusummituat.com//)
 
 ## 🙋 Support
 

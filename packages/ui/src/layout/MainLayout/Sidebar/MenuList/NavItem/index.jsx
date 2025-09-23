@@ -101,60 +101,50 @@ const NavItem = ({ item, level, navType, onClick, onUploadFile }) => {
             disabled={item.disabled}
             data-tour={`${item.id}-menu`}
             sx={{
-                borderRadius: `${customization.borderRadius}px`,
-                mb: 0.5,
-                alignItems: 'flex-start',
+                borderRadius: '8px',          // slightly smaller radius for tighter look
+                mb: 0,                        // remove extra margin between items
+                alignItems: 'center',         // vertically align icon + text
                 backgroundColor: level > 1 ? 'transparent !important' : 'inherit',
-                py: level > 1 ? 1 : 1.25,
-                pl: `${level * 24}px`
+                py: 1.4,                     // tighter vertical padding (was 1.5)
+                pl: `${level * 20}px`,        // slightly smaller indent (was 24)
+                transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+                '&:hover': {
+                    transform: 'translateX(4px)'
+                }
             }}
             selected={customization.isOpen.findIndex((id) => id === item.id) > -1}
             onClick={() => itemHandler(item.id)}
         >
-            {item.id === 'loadChatflow' && <input type='file' hidden accept='.json' onChange={(e) => handleFileUpload(e)} />}
-            <ListItemIcon sx={{ my: 'auto', minWidth: !item?.icon ? 18 : 36 }}>{itemIcon}</ListItemIcon>
+            <ListItemIcon sx={{ my: 'auto', minWidth: !item?.icon ? 18 : 32 }}>
+                {itemIcon}
+            </ListItemIcon>
+
             <ListItemText
                 primary={
                     <Typography
-                        variant={customization.isOpen.findIndex((id) => id === item.id) > -1 ? 'h5' : 'body1'}
+                        variant={customization.isOpen.findIndex((id) => id === item.id) > -1 ? 'h6' : 'body2'}
                         color='inherit'
-                        sx={{ my: 0.5 }}
+                        sx={{ my: 0 }}             // remove vertical margins
                     >
                         {item.title}
                     </Typography>
                 }
                 secondary={
                     item.caption && (
-                        <Typography variant='caption' sx={{ ...theme.typography.subMenuCaption, mt: -0.6 }} display='block' gutterBottom>
+                        <Typography
+                            variant='caption'
+                            sx={{ ...theme.typography.subMenuCaption, mt: 0 }} // tighter
+                            display='block'
+                            gutterBottom={false}
+                        >
                             {item.caption}
                         </Typography>
                     )
                 }
                 sx={{ my: 'auto' }}
             />
-            {item.chip && (
-                <Chip
-                    color={item.chip.color}
-                    variant={item.chip.variant}
-                    size={item.chip.size}
-                    label={item.chip.label}
-                    avatar={item.chip.avatar && <Avatar>{item.chip.avatar}</Avatar>}
-                />
-            )}
-            {item.isBeta && (
-                <Chip
-                    sx={{
-                        my: 'auto',
-                        width: 'max-content',
-                        fontWeight: 700,
-                        fontSize: '0.65rem',
-                        background: theme.palette.teal.main,
-                        color: 'white'
-                    }}
-                    label={'BETA'}
-                />
-            )}
         </ListItemButton>
+
     )
 }
 
